@@ -1,4 +1,4 @@
-package org.example.models;
+package org.padilha.models;
 
 public enum Genre {
     METAL("Metal"),
