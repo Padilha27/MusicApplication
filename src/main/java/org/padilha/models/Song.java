@@ -1,5 +1,22 @@
 package org.padilha.models;
 
+/*public class Song {
+    private String title;
+    private Temperature songTemperature;
+
+    public Song(String title,Temperature songTemperature) {
+        this.title = title;
+        this.songTemperature = songTemperature;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+    public Temperature getSongTemperature() {
+        return songTemperature;
+    }
+}*/
+
 public class Song {
     private String title;
     private String artist;
@@ -25,7 +42,7 @@ public class Song {
         return genre;
     }
 
-    public Temperature getTemperature() {
+    public Temperature getSongTemperature() {
         return temperature;
     }
 }

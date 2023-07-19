@@ -1,4 +1,4 @@
-package org.padilha.repositories;
+package org.padilha.repositories.interfaces;
 
 import org.padilha.models.Song;
 

@@ -1,19 +1,26 @@
 package org.padilha;
 
-import org.padilha.input.InputTemperature;
-import org.padilha.repositories.MusicRecommendationRepositoryImpl;
+import org.padilha.exception.TemperatureOutOfRangeException;
+import org.padilha.input.UserInputTemperature;
+import org.padilha.models.Temperature;
 import org.padilha.repositories.SongCollectionRepositoryImpl;
+import org.padilha.repositories.interfaces.SongCollectionRepository;
+import org.padilha.services.MusicRecomendationService;
 import org.padilha.services.RadioServiceImpl;
 
 public class Main {
-    public static void main(String[] args) {
-        SongCollectionRepositoryImpl songCollectionRepositoryImpl = new SongCollectionRepositoryImpl();
-        RadioServiceImpl radioService = new RadioServiceImpl(songCollectionRepositoryImpl);
-        InputTemperature inputTemperature = new InputTemperature();
-        MusicRecommendationRepositoryImpl musicRecommendationRepository = new MusicRecommendationRepositoryImpl(radioService);
+    public static void main(String[] args) throws TemperatureOutOfRangeException {
+        SongCollectionRepository songCollectionRepository = new SongCollectionRepositoryImpl();
+        RadioServiceImpl radioService = new RadioServiceImpl(songCollectionRepository, new Temperature());
+        UserInputTemperature userInputTemperature = new UserInputTemperature();
+        MusicRecomendationService musicRecomendationService = new MusicRecomendationService(radioService);
 
-        float temperature = inputTemperature.getTemperatureInput();
+        float temperatureInput = userInputTemperature.getTemperatureInput();
 
-        musicRecommendationRepository.getSongByTemperature(temperature);
+        Temperature temperature = new Temperature();
+        temperature.setValue(temperatureInput);
+        musicRecomendationService.getSongByTemperature(temperatureInput);
+
+        songCollectionRepository.getSongs();
     }
 }

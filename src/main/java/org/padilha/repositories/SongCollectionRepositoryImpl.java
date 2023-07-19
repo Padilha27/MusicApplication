@@ -3,12 +3,28 @@ package org.padilha.repositories;
 import org.padilha.models.Genre;
 import org.padilha.models.Song;
 import org.padilha.models.Temperature;
+import org.padilha.repositories.interfaces.SongCollectionRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SongCollectionRepositoryImpl implements SongCollectionRepository{
+public class SongCollectionRepositoryImpl implements  SongCollectionRepository{
    private List<Song> songs;
+
+    /*public SongCollectionRepositoryImpl() {
+        this.songs = new ArrayList<>();
+        this.songs.add(new Song("Paranoid", new Temperature(-50f, -30f)));
+        this.songs.add(new Song("One More Time", new Temperature(-30f, -15f)));
+        this.songs.add(new Song("Radioactive",  new Temperature(-15f,0f)));
+        this.songs.add(new Song("Águas de Março", new Temperature(0f,15f)));
+        this.songs.add(new Song("Moonlight Sonata", new Temperature(15f,30f)));
+        this.songs.add(new Song("Céu de Santo Amaro", new Temperature(30f,100f)));
+    }
+   /* public List<Song> getSongs() {
+        return songs;
+    }
+}
+    private List<Song> songs;*/
 
     public SongCollectionRepositoryImpl() {
         this.songs = new ArrayList<>();
